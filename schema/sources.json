@@ -1,0 +1,25 @@
+{
+  "repository": "https://github.com/openpotato/opent8",
+  "release": "v-0.8.0",
+  "commit": "ba944b392e7bb36a72bb8d452e356c88444cc1e7",
+  "schemas": [
+    {
+      "version": "0.7.0",
+      "path": "schemas/v0.7/schema.json",
+      "local": "schema/v0.7/schema.json",
+      "sha256": "707755adc0513393aafd9f770d0719b6038f833ae2975615fb56f8bdf429b14a",
+      "license_path": "LICENSE",
+      "license_local": "schema/v0.7/LICENSE",
+      "license_sha256": "43070e2d4e532684de521b885f385d0841030efa2b1a20bafb76133a5e1379c1"
+    },
+    {
+      "version": "0.8.0",
+      "path": "schemas/v0.8/schema.json",
+      "local": "schema/v0.8/schema.json",
+      "sha256": "cd3a4006d98c88a2747e92c6849c9025f8cd43e944bbe5da12db7771321b9e9c",
+      "license_path": "LICENSE",
+      "license_local": "schema/v0.8/LICENSE",
+      "license_sha256": "43070e2d4e532684de521b885f385d0841030efa2b1a20bafb76133a5e1379c1"
+    }
+  ]
+}
