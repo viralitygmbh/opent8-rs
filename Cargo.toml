@@ -16,5 +16,8 @@ serde_json = { version = "1", features = ["preserve_order"] }
 chrono = { version = "0.4", default-features = false, features = ["std", "serde"] }
 regress = "0.12"
 
+[dev-dependencies]
+jsonschema = { version = "0.61.2", default-features = false }
+
 [lints.rust]
 unsafe_code = "forbid"
