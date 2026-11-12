@@ -1,0 +1,20 @@
+[package]
+name = "opent8"
+version = "0.1.0"
+edition = "2024"
+description = "Independent Rust types and serialization for OpenT8 timetable data"
+license = "MIT AND Apache-2.0"
+readme = "README.md"
+keywords = ["opent8", "timetable", "serde", "json"]
+categories = ["encoding", "data-structures"]
+publish = ["crates-io"]
+include = ["/src", "/schema", "/scripts", "/tests", "/README.md", "/CONTRIBUTING.md", "/LICENSE-*", "/THIRD_PARTY_NOTICES.md", "/rust-toolchain.toml"]
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = { version = "1", features = ["preserve_order"] }
+chrono = { version = "0.4", default-features = false, features = ["std", "serde"] }
+regress = "0.12"
+
+[lints.rust]
+unsafe_code = "forbid"
