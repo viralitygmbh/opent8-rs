@@ -1,5 +1,8 @@
 # opent8-rs
 
+[![CI](https://github.com/viralitygmbh/opent8-rs/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/viralitygmbh/opent8-rs/actions/workflows/ci.yml)
+[![crates.io](https://img.shields.io/crates/v/opent8.svg)](https://crates.io/crates/opent8)
+
 A Rust library for reading and writing [OpenT8](https://openpotato.github.io/opent8/)
 timetable data. It provides Serde types for OpenT8 **0.5–0.8**, the
 original JSON schemas, and helpers for serializing fields in specification order.
