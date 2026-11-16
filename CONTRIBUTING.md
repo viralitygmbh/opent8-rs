@@ -22,7 +22,7 @@ Generator adaptations affect temporary input only; vendored schemas stay unchang
 ## Rust support
 
 Rust **1.88** is the minimum supported version. CI tests it and stable Rust on
-Linux, macOS, and Windows. Update `Cargo.toml` and CI together when raising it.
+Linux. Update `Cargo.toml` and CI together when raising it.
 
 `rust-toolchain.toml` pins the tools used for development and code generation.
 
