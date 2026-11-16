@@ -7,11 +7,15 @@ fn input(version: &str) -> Value {
         "info": {"title": "Test timetable", "publishedAt": "2026-09-01T08:30:00+02:00"},
         "schedule": {"timeZone": "Europe/Berlin", "validFrom": "2026-09-01", "validTo": "2027-08-01"}
     });
-    if version == "0.7.0" {
+    if version != "0.8.0" {
         value["schedule"]
             .as_object_mut()
             .unwrap()
             .remove("timeZone");
+    }
+    if version.starts_with("0.5.") {
+        value["schedule"]["validFrom"] = json!("2026-09-01T00:00:00+02:00");
+        value["schedule"]["validTo"] = json!("2027-08-01T00:00:00+02:00");
     }
     value
 }
@@ -52,6 +56,8 @@ macro_rules! version_tests {
         }
     };
 }
+version_tests!(v0_5, "0.5.1");
+version_tests!(v0_6, "0.6.0");
 version_tests!(v0_7, "0.7.0");
 version_tests!(v0_8, "0.8.0");
 

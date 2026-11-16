@@ -15,6 +15,10 @@ macro_rules! strict_fields_test {
             if $version == "0.8.0" {
                 original["schedule"]["timeZone"] = json!("Europe/Berlin");
             }
+            if $version == "0.5.1" {
+                original["schedule"]["validFrom"] = json!("2026-09-01T00:00:00+02:00");
+                original["schedule"]["validTo"] = json!("2027-08-01T00:00:00+02:00");
+            }
             assert!(serde_json::from_value::<api::Document>(original.clone()).is_ok());
 
             for (object, field) in [("", "unknownRoot"), ("/info", "titel"),
@@ -28,5 +32,7 @@ macro_rules! strict_fields_test {
         }
     };
 }
+strict_fields_test!(v0_5, "0.5.1");
+strict_fields_test!(v0_6, "0.6.0");
 strict_fields_test!(v0_7, "0.7.0");
 strict_fields_test!(v0_8, "0.8.0");
