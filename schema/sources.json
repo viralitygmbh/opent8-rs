@@ -4,6 +4,24 @@
   "commit": "ba944b392e7bb36a72bb8d452e356c88444cc1e7",
   "schemas": [
     {
+      "version": "0.5.1",
+      "path": "schemas/v0.5/schema.json",
+      "local": "schema/v0.5/schema.json",
+      "sha256": "506c8cd3973f99555958633e1c3e1e03ed490f077e6a76fcb0757d69088e98bc",
+      "license_path": "LICENSE",
+      "license_local": "schema/v0.5/LICENSE",
+      "license_sha256": "43070e2d4e532684de521b885f385d0841030efa2b1a20bafb76133a5e1379c1"
+    },
+    {
+      "version": "0.6.0",
+      "path": "schemas/v0.6/schema.json",
+      "local": "schema/v0.6/schema.json",
+      "sha256": "a16198c0ff6565c1f84eb73ab3be1b842b23db06937ce86b7d5fe524e7495a55",
+      "license_path": "LICENSE",
+      "license_local": "schema/v0.6/LICENSE",
+      "license_sha256": "43070e2d4e532684de521b885f385d0841030efa2b1a20bafb76133a5e1379c1"
+    },
+    {
       "version": "0.7.0",
       "path": "schemas/v0.7/schema.json",
       "local": "schema/v0.7/schema.json",
