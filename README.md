@@ -26,12 +26,12 @@ Each version module exposes:
 
 ## Supported versions
 
-| OpenT8 | Rust module |
-| --- | --- |
+| OpenT8             | Rust module    |
+|--------------------|----------------|
 | 0.5 (schema 0.5.1) | `opent8::v0_5` |
-| 0.6 | `opent8::v0_6` |
-| 0.7 | `opent8::v0_7` |
-| 0.8 | `opent8::v0_8` |
+| 0.6                | `opent8::v0_6` |
+| 0.7                | `opent8::v0_7` |
+| 0.8                | `opent8::v0_8` |
 
 All versions are included. The crate version tracks the Rust API independently
 of the OpenT8 specification. Requires Rust 1.88 or newer.
