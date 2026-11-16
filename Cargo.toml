@@ -2,6 +2,8 @@
 name = "opent8"
 version = "0.1.0"
 edition = "2024"
+rust-version = "1.88"
+repository = "https://github.com/viralitygmbh/opent8-rs"
 description = "Independent Rust types and serialization for OpenT8 timetable data"
 license = "MIT AND Apache-2.0"
 readme = "README.md"
