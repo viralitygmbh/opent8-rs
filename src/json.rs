@@ -23,7 +23,10 @@ fn resolve<'a>(mut schema: &'a Value, root: &'a Value) -> &'a Value {
 
 fn ordered(value: Value, schema: &Value, root: &Value) -> Value {
     let mut schema = resolve(schema, root);
-    if let Some(variants) = schema.get("oneOf").and_then(Value::as_array)
+    if let Some(variants) = schema
+        .get("oneOf")
+        .or_else(|| schema.get("anyOf"))
+        .and_then(Value::as_array)
         && let Some(variant) =
             variants
                 .iter()
