@@ -55,5 +55,6 @@ for regeneration and release checks.
 
 ## License
 
-MIT, except for the upstream schemas and code derived from them, which are
-Apache-2.0. See [licenses and attribution](THIRD_PARTY_NOTICES.md) for details.
+Handwritten code is licensed under MIT. The vendored OpenT8 schemas and code
+generated from them are licensed under Apache-2.0. See
+[licenses and attribution](THIRD_PARTY_NOTICES.md) for details.
