@@ -23,9 +23,21 @@ generated="$temporary/generated.rs"
 # the Rust type annotation preserves wall-clock times and offsets on serialization.
 # Date/date-time formats are disjoint. Typify needs oneOf to generate their enum
 # instead of an anyOf struct that incorrectly flattens scalar values.
-for version in 0.7 0.8; do
+for version in 0.5 0.6 0.7 0.8; do
   target="src/v${version//./_}/generated.rs"
-  jq 'walk(if type == "object" then
+  # 0.5 has a free-form extension schema typify cannot interpret and an
+  # invalid enum default. Its anyOf object unions are disjoint by discriminator.
+  # Adapt only generator input; the original schema remains authoritative.
+  jq --arg version "$version" '
+  (if $version == "0.5" then
+    .["$defs"].customExtension = true |
+    (.["$defs"].nameOfPerson.properties.declaredNameType |= del(.default)) |
+    (.["$defs"].temporalExpressions.items |= (.oneOf = .anyOf | del(.anyOf))) |
+    (.["$defs"].gap.properties.reasons.items |= (.oneOf = .anyOf | del(.anyOf))) |
+    (.["$defs"].gap.properties.resolutions.items |= (.oneOf = .anyOf | del(.anyOf))) |
+    (.properties.schedule.properties.scheduleElements.items |= (.oneOf = .anyOf | del(.anyOf)))
+  else . end) |
+  walk(if type == "object" then
   (if has("anyOf") and ([.anyOf[] | .format] | sort) == ["date", "date-time"]
     then . + {"oneOf": .anyOf} | del(.anyOf) else . end) |
   (if has("const") then . + {"enum": [.const], "title": (.const + "Kind")} | del(.const) else . end) |

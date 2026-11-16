@@ -1,0 +1,2 @@
+# Collapse generated Rust in GitHub diffs and exclude it from language statistics.
+src/v*/generated.rs linguist-generated=true
