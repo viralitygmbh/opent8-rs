@@ -1,7 +1,7 @@
 # opent8-rs
 
 A Rust library for reading and writing [OpenT8](https://openpotato.github.io/opent8/)
-timetable data. It provides Serde types for OpenT8 **0.7** and **0.8**, the
+timetable data. It provides Serde types for OpenT8 **0.5–0.8**, the
 original JSON schemas, and helpers for serializing fields in specification order.
 
 ## Usage
@@ -20,22 +20,21 @@ fn read_and_write(input: &str) -> Result<String, serde_json::Error> {
 
 Each version module exposes:
 
-- `Document` and the types used by its fields, with Serde serialization and
-  deserialization support.
-- `to_json_value(&document)` to serialize fields in the order defined by the
-  schema. Use this before writing JSON when specification ordering matters.
-- `SCHEMA`, the original JSON schema as a string, for use with a JSON Schema
-  validator.
+- `Document` and its field types, with Serde support.
+- `to_json_value(&document)` to serialize fields in schema order.
+- `SCHEMA`, the original JSON schema for validation.
 
 ## Supported versions
 
 | OpenT8 | Rust module |
 | --- | --- |
+| 0.5 (schema 0.5.1) | `opent8::v0_5` |
+| 0.6 | `opent8::v0_6` |
 | 0.7 | `opent8::v0_7` |
 | 0.8 | `opent8::v0_8` |
 
-Both versions are included. The crate version tracks the Rust API independently
-of the OpenT8 specification. Conversion between versions is not implemented yet.
+All versions are included. The crate version tracks the Rust API independently
+of the OpenT8 specification. Requires Rust 1.88 or newer.
 
 ## Validation
 
@@ -44,15 +43,15 @@ uniqueness. Validate against the matching `SCHEMA` when full schema validation
 is needed. Reference integrity and other semantic rules may require additional
 application checks.
 
-Unknown fields are rejected during deserialization. This includes custom `x-`
-properties: although OpenT8 allows them on certain objects, such as `info`,
-the current Rust types do not support them.
+Unknown fields, including custom `x-` properties, may be rejected or ignored
+depending on the object. They are not preserved when writing the document back.
+Chrono-backed timestamps retain at most nine fractional digits (nanoseconds);
+additional digits are truncated, not rounded.
 
 ## Development
 
-The schemas and code are checked in; normal builds do not need a generator or
-schema downloads. See [CONTRIBUTING.md](CONTRIBUTING.md) for schema updates,
-code generation, and release checks.
+Schemas and Rust code are checked in. See [CONTRIBUTING.md](CONTRIBUTING.md)
+for regeneration and release checks.
 
 ## License
 
